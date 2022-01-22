@@ -566,7 +566,9 @@ class TTSFactory:
     from mycroft.tts.dummy_tts import DummyTTS
     from mycroft.tts.polly_tts import PollyTTS
     from mycroft.tts.mozilla_tts import MozillaTTS
-
+    from mycroft.tts.mozilla_tts2 import MozillaTTS2
+    from mycroft.tts.open_tts import OpenTTS
+    
     CLASSES = {
         "mimic": Mimic,
         "mimic2": Mimic2,
@@ -582,6 +584,8 @@ class TTSFactory:
         "yandex": YandexTTS,
         "polly": PollyTTS,
         "mozilla": MozillaTTS,
+        "mozilla2":MozillaTTS2,
+        "opentts": OpenTTS,
         "dummy": DummyTTS
     }
 

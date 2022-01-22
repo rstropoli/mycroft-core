@@ -13,6 +13,7 @@
 # limitations under the License.
 import os
 from os.path import join, dirname, expanduser, exists
+from mycroft.util.log import LOG
 
 import xdg.BaseDirectory
 
@@ -41,6 +42,7 @@ def __ensure_folder_exists(path):
     if not exists(directory):
         os.makedirs(directory)
 
+LOG.info ('WEB CACHE ' + WEB_CONFIG_CACHE )
 
 __ensure_folder_exists(WEB_CONFIG_CACHE)
 __ensure_folder_exists(USER_CONFIG)
