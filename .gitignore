@@ -35,3 +35,4 @@ test_conf.json
 # my stuff 
 startup.sh
 mycroft-precise
+token
