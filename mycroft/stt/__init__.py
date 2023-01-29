@@ -335,6 +335,19 @@ class DeepSpeechServerSTT(STT):
         response = post(self.config.get("uri"), data=audio.get_wav_data())
         return response.text
 
+class PicoVoiceServerSTT(STT):
+    """
+        STT interface for the deepspeech-server:
+        https://github.com/MainRo/deepspeech-server
+        use this if you want to host DeepSpeech yourself
+    """
+    def __init__(self):
+        super(PicoVoiceServerSTT, self).__init__()
+
+    def execute(self, audio, language=None):
+        language = language or self.lang
+        response = post(self.config.get("uri"), data=audio.get_wav_data())
+        return response.text
 
 class StreamThread(Thread, metaclass=ABCMeta):
     """ABC class to be used with StreamingSTT class implementations.
@@ -630,6 +643,7 @@ class STTFactory:
         "deepspeech_server": DeepSpeechServerSTT,
         "deepspeech_stream_server": DeepSpeechStreamServerSTT,
         "mycroft_deepspeech": MycroftDeepSpeechSTT,
+        "picovoice_server": PicoVoiceServerSTT,
         "yandex": YandexSTT
     }
 
